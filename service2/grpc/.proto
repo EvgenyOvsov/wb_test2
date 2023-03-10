@@ -1,0 +1,30 @@
+syntax = "proto3";
+option go_package = "/grpc";
+
+service BuyersAndShops {
+    rpc CreateBuyer (Buyer) returns (Status) {}
+	rpc CreateShop (Shop) returns (Status) {}
+	rpc GetBuyer (Buyer) returns (Buyer) {}
+	rpc GetShop (Shop) returns (Shop) {}
+	rpc DeleteBuyer (Buyer) returns (Status) {}
+	rpc DeleteShop (Shop) returns (Status) {}
+}
+
+message Status {
+	string error = 1;
+}
+
+message Buyer {
+	string firstName = 1;
+	string lastName = 2;
+	string middleName = 3;
+	int32 age = 4;
+	string registation = 5;
+}
+
+message Shop {
+	string name = 1;
+	string address = 2;
+	bool working = 3;
+	string owner = 4;
+}

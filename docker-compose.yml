@@ -1,0 +1,14 @@
+services:
+  datastore_service:
+    build: ./service2
+    ports:
+      - "8080:8080" # debug line, open it is not safe
+  
+  request_service:
+    build: ./service1
+    ports:
+      - "80:80"
+    depends_on:
+      - datastore_service
+
+  
